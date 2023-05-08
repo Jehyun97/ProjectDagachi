@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" value="메인"/>
+<%@include file="/WEB-INF/jsp/common/head.jspf" %>
+<div class="content-wrapper">
+
+  <div class="container mx-auto px-3">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo beatae veniam placeat odio voluptatibus est error consequatur enim optio consectetur sunt accusantium molestiae cupiditate quis repellendus facere atque ducimus velit.      
+   </div>
+
+</div>
+
+<%@include file="/WEB-INF/jsp/common/foot.jspf" %>
