@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi;
+package com.sbs.dagachi;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

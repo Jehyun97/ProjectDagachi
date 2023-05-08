@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi.vo;
+package com.sbs.dagachi.vo;
 
 import java.util.Date;
 

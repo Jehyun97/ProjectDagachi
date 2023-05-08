@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi;
+package com.sbs.dagachi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

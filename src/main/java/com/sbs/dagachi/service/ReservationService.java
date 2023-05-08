@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi.service;
+package com.sbs.dagachi.service;
 
 import java.util.Date;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lsh.exam.dagachi.repository.ReservationRepository;
-import com.lsh.exam.dagachi.vo.Reservation;
+import com.sbs.dagachi.repository.ReservationRepository;
+import com.sbs.dagachi.vo.Reservation;
 
 
 @Service

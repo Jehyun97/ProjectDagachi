@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi.controller;
+package com.sbs.dagachi.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi.controller;
+package com.sbs.dagachi.controller;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lsh.exam.dagachi.service.ReservationService;
-import com.lsh.exam.dagachi.vo.Reservation;
-import com.lsh.exam.demo.vo.Article;
+import com.sbs.dagachi.service.ReservationService;
+import com.sbs.dagachi.vo.Reservation;
+
 
 @Controller
 public class UsrReservationController {

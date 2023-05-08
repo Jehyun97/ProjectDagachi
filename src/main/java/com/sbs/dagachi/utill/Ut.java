@@ -1,4 +1,4 @@
-package com.lsh.exam.dagachi.utill;
+package com.sbs.dagachi.utill;
 
 import java.net.URLEncoder;
 import java.security.MessageDigest;

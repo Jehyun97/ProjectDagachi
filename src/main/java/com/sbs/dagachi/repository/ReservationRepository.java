@@ -1,10 +1,10 @@
-package com.lsh.exam.dagachi.repository;
+package com.sbs.dagachi.repository;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.lsh.exam.dagachi.vo.Reservation;
+import com.sbs.dagachi.vo.Reservation;
 
 @Mapper
 public interface ReservationRepository {

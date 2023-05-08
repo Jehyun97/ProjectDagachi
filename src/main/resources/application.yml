@@ -11,7 +11,7 @@ spring:
     username: dagachi
     password: dagachi
 mybatis:
-  type-aliases-package: com.lsh.exam.dagachi.vo
+  type-aliases-package: com.sbs.dagachi.vo
   
 custom:
   logging:
