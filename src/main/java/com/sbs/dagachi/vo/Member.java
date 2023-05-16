@@ -21,6 +21,7 @@ public class Member {
 	private String member_department;
 	private String member_team;
 	private String member_rank;
+
 	private int member_status;
 	private Date member_deldate;
 	private Date birth;
