@@ -36,7 +36,7 @@ public class Phone_Book_Controller {
 
 	
 	
-	@RequestMapping("dagachi/phoneBook/showList")
+	@RequestMapping("dagachi/phoneBook/showList123")
 	public String showList(String searchType, String keyword,
 			String phone_book_type, String phone_book_register,Model model,@RequestParam(defaultValue = "1") int page) {
 		
