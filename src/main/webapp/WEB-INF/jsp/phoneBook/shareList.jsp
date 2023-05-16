@@ -24,7 +24,7 @@
 	      <!-- <h3 class="card-title"></h3> -->
 	      <div class="btns col-sm-6">
 	      <c:if test="${phoneBookType ne '3' }">
-	      	<button type="button" class="btn bg-gradient" style="background: #5865F2; color:#ffffff;" onclick="OpenWindow('registForm?phone_book_register=${param.phone_book_register}','주소록 등록',800,800);">주소록 등록</button>
+	      	<button type="button" class="btn bg-gradient" style="background: #5865F2; color:#ffffff;" onclick="OpenWindow('registForm','주소록 등록',800,800);">주소록 등록</button>
 	      	<button type="button" class="btn bg-gradient" style="background: #5865F2; color:#ffffff;" onclick="deleteChecked();">삭제</button>
 	      </c:if>
 		  <c:if test="${phoneBookType eq '3' }">
@@ -260,8 +260,7 @@ function deleteChecked(){
 		dataType:"text",
 		data:{
 			checkedIdArr:arr,
-			phoneBookType:'${param.phone_book_type}',
-			register: '${param.phone_book_register}'
+			phoneBookType:'${param.phone_book_type}'
 			},
 		traditional:true,
 		success:function(data){
@@ -269,7 +268,7 @@ function deleteChecked(){
 			alert("해당 정보는 휴지통으로 이동되었으며 30일 경과 후 자동으로 삭제됩니다.");
 		},
 		error:function(error){
-			alert(error);
+			console.log(error);
 		}
 	});
 	}

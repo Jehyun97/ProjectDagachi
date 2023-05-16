@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sbs.dagachi.service.FavPhoneService;
 import com.sbs.dagachi.service.Phone_Book_Service;
 import com.sbs.dagachi.vo.FavPhoneVO;
+import com.sbs.dagachi.vo.Member;
 import com.sbs.dagachi.vo.Phone_BookVO;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class FavPhoneController {
-
+	
 	FavPhoneService favPhoneService;
 	Phone_Book_Service phone_Book_Service;
 
@@ -21,9 +24,11 @@ public class FavPhoneController {
 		this.favPhoneService = favPhoneService;
 		this.phone_Book_Service = phone_Book_Service;
 	}
-
+	
 	@RequestMapping("dagachi/favPhoneBook/favList")
-	public String showFavList(String register, Model model) {
+	public String showFavList(Model model,HttpSession session) {
+		Member loginUser= (Member)session.getAttribute("loginUser");
+		String register=loginUser.getMember_id();
 		List<FavPhoneVO> favList = favPhoneService.getFavList(register);
 
 		model.addAttribute("phoneBookList", favList);
@@ -34,9 +39,13 @@ public class FavPhoneController {
 
 	
 	@RequestMapping("dagachi/favPhoneBook/removeFavPhone")
-	public String removeFavPhone(String favId,String register,Model model) {
+	public String removeFavPhone(String favId,HttpSession session,Model model) {
 		int favIdInt=Integer.parseInt(favId);
 		favPhoneService.removeFav(favIdInt);
+		
+		Member loginUser= (Member)session.getAttribute("loginUser");
+		String register=loginUser.getMember_id();
+		
 
 		List<FavPhoneVO> favList = favPhoneService.getFavList(register);
 
@@ -47,13 +56,16 @@ public class FavPhoneController {
 	}
 	
 	@RequestMapping("dagachi/favPhoneBook/removeCb")
-	public String removeCb(String[] favIdArr,String register,Model model) {
+	public String removeCb(String[] favIdArr,HttpSession session,Model model) {
 		for(int i=0;i<favIdArr.length;i++) {
 			int favIdInt=Integer.parseInt(favIdArr[i]);
 			favPhoneService.removeFav(favIdInt);
 			
 		}
-
+		
+		Member loginUser= (Member)session.getAttribute("loginUser");
+		String register=loginUser.getMember_id();
+		
 		List<FavPhoneVO> favList = favPhoneService.getFavList(register);
 
 		model.addAttribute("phoneBookList", favList);

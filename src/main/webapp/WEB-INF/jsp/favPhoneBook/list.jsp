@@ -125,8 +125,8 @@ function removeFavPhone(dex){
 		url:"removeFavPhone",
 		type:"post",
 		dataType:"text",
-		data:{favId: dex,
-			  register:'${param.register}'},
+		data:{favId: dex
+			  },
 		traditional:true,
 		success:function(data){
 			$('#ListTable').html(data);
@@ -154,8 +154,8 @@ function removeChecked(){
 		type:"post",
 		dataType:"text",
 		data:{
-			favIdArr:arr,
-			register:'${param.register}'},
+			favIdArr:arr
+			},
 		traditional:true,
 		success:function(data){
 			$('#ListTable').html(data);

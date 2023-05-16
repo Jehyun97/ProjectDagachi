@@ -1,5 +1,6 @@
 package com.sbs.dagachi.controller;
 
+import java.net.http.HttpRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,8 +39,13 @@ public class Phone_Book_Controller {
 	
 	@RequestMapping("dagachi/phoneBook/showList")
 	public String showList(String searchType, String keyword,
-			String phone_book_type, String phone_book_register,Model model,@RequestParam(defaultValue = "1") int page) {
+			String phone_book_type, String phone_book_register,Model model,@RequestParam(defaultValue = "1") int page,HttpSession session) {
 		
+		if(phone_book_register==null) {
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			phone_book_register=loginUser.getMember_id();
+		}
 		//페이지네이션
 		int typeInt=Integer.parseInt(phone_book_type);
 		int phoneBookCount=phone_Book_Service.getPhoneBookCount(searchType,keyword,typeInt,phone_book_register);
@@ -144,15 +150,16 @@ public class Phone_Book_Controller {
 	@RequestMapping("dagachi/phoneBook/regist")
 	public String registPhone_Book(String phone_Book_Name, String phone_Book_Email, String phone_Book_Phone,
 			String phone_Book_Company, String phone_Book_Tag, String phone_Book_Fax, String phone_Book_Dep,
-			String phone_Book_Rank, String phone_Book_Address, String phone_Book_Web, String phone_Book_Register,
+			String phone_Book_Rank, String phone_Book_Address, String phone_Book_Web,
 			@RequestParam(defaultValue = "1")String phone_Book_Type,HttpServletRequest req, Model model) {
 		
-		
+		String phone_Book_Register=null;
 		HttpSession session=req.getSession();
-//		Member member=(Member)session.getAttribute("");
-//		String phone_Book_Register=member.getMember_id();
-		
-		//로그인 세션 받으면 지워랑
+		if(phone_Book_Register==null) {
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			phone_Book_Register=loginUser.getMember_id();
+		}
 
 		
 		int phone_Book_Type2=Integer.parseInt(phone_Book_Type);
@@ -168,7 +175,13 @@ public class Phone_Book_Controller {
 	}
 	
 	@RequestMapping("dagachi/phoneBook/registForm")
-	public String showPhoneBookRegistForm(Model model,String phone_book_register) {
+	public String showPhoneBookRegistForm(Model model,HttpSession session) {
+		String phone_book_register=null;
+		if(phone_book_register==null) {
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			phone_book_register=loginUser.getMember_id();
+		}
+		
 		List<String>tags=phone_Book_Service.getTagList();
 		model.addAttribute("tags",tags);
 		model.addAttribute("phone_book_register", phone_book_register);
@@ -178,7 +191,8 @@ public class Phone_Book_Controller {
 	
 	
 	@RequestMapping("dagachi/phoneBook/modifyForm")
-	public String showPhoneBookModifyForm(int phone_Book_Id, String phone_Book_Register, Model model) {
+	public String showPhoneBookModifyForm(int phone_Book_Id,HttpSession session, Model model) {
+		
 		Phone_BookVO phoneBook=phone_Book_Service.getPhoneBookDetail(phone_Book_Id);
 		
 		List<String>tags=phone_Book_Service.getTagList();
@@ -209,7 +223,12 @@ public class Phone_Book_Controller {
 		}
 		model.addAttribute("addedTag", addedTags);
 		
-		
+		String phone_Book_Register=null;
+		if(phone_Book_Register==null) {
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			phone_Book_Register=loginUser.getMember_id();
+		}
 		model.addAttribute("phone_Book_register", phone_Book_Register);
 		model.addAttribute("phoneBook",phoneBook);
 		return "phoneBook/modify";
@@ -247,14 +266,17 @@ public class Phone_Book_Controller {
 	}
 	
 	@RequestMapping("dagachi/phoneBook/moveTrashCb")
-	public String moveTrashCb(String[]checkedIdArr, String phoneBookType, String register, String searchType, String keyword,
+	public String moveTrashCb(String[]checkedIdArr, String phoneBookType, HttpSession session, String searchType, String keyword,
 			@RequestParam(defaultValue = "1")int page, Model model) {
 		for(int i=0;i<checkedIdArr.length;i++) {
 			int checkedId=Integer.parseInt(checkedIdArr[i]);
 			phone_Book_Service.moveTrashPhone_Book(checkedId);
 		}
+		String register=null;
 		if(register==null) {
-			register="";
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			register=loginUser.getMember_id();
 		}
 		
 		int phone_book_type=Integer.parseInt(phoneBookType);
@@ -274,8 +296,15 @@ public class Phone_Book_Controller {
 	
 	
 	@RequestMapping("dagachi/phoneBook/recoveryPhoneBook")
-	public String recoveryPhoneBook(String[] phone_Book_Id, String phone_Book_Type,Model model, String register, String searchType, String keyword,
+	public String recoveryPhoneBook(String[] phone_Book_Id, String phone_Book_Type,Model model, HttpSession session, String searchType, String keyword,
 			@RequestParam(defaultValue = "1")int page) {
+		
+		String register=null;
+		if(register==null) {
+				Member loginUser=(Member) session.getAttribute("loginUser");
+				register=loginUser.getMember_id();
+			}
+		
 		for(int i=0;i<phone_Book_Id.length;i++) {
 			int phoneBookId= Integer.parseInt(phone_Book_Id[i]);
 			phone_Book_Service.modifyType(phoneBookId, phone_Book_Type);
@@ -303,14 +332,17 @@ public class Phone_Book_Controller {
 	}
 	
 	@RequestMapping("dagachi/phoneBook/eliminateCb")
-	public String eliminateCb(String[]checked_EIdArr, String phoneBookType, String register, String searchType, String keyword,
+	public String eliminateCb(String[]checked_EIdArr, String phoneBookType, HttpSession session, String searchType, String keyword,
 			@RequestParam(defaultValue = "1")int page, Model model) {
 		for(int i=0;i<checked_EIdArr.length;i++) {
 			int checkedId=Integer.parseInt(checked_EIdArr[i]);
 			phone_Book_Service.removePhone_Book(checkedId);
 		}
+		String register=null;
 		if(register==null) {
-			register="";
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			register=loginUser.getMember_id();
 		}
 		
 		int phone_book_type=Integer.parseInt(phoneBookType);
@@ -338,15 +370,28 @@ public class Phone_Book_Controller {
 	}
 	
 	@RequestMapping("dagachi/phoneBook/registFav")
-	public String registFavAtPhoneBook(String userId, String phone_Book_Id) {
+	public String registFavAtPhoneBook(HttpSession session, String phone_Book_Id) {
 		int phoneBookId=Integer.parseInt(phone_Book_Id);
+		String userId=null;
+		if(userId==null) {
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			userId=loginUser.getMember_id();
+		}
 		favPhoneService.registFav(phoneBookId, userId);
 		return "phoneBook/ResultTable";
 	}
 	
 	@RequestMapping("dagachi/phoneBook/removeFav")
-	public String removeFavAtPhoneBook(String userId, String phone_Book_Id) {
+	public String removeFavAtPhoneBook(HttpSession session, String phone_Book_Id) {
 		int phoneBookId=Integer.parseInt(phone_Book_Id);
+		String userId=null;
+		if(userId==null) {
+			
+			Member loginUser=(Member) session.getAttribute("loginUser");
+			userId=loginUser.getMember_id();
+		}
+		favPhoneService.registFav(phoneBookId, userId);
 		favPhoneService.removeFavAtPhone(phoneBookId,userId);
 		return "phoneBook/ResultTable";
 	}
