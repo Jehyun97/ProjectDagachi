@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@include file="../jsp/include/head.jsp"%>
+<%@include file="../include/head.jspf"%>
    <div class="content-wrapper">
    
    <h1>
@@ -170,7 +170,7 @@
 		<input type="hidden" name="checked_EId" value=""/>
 	</form>
 	
-<%@include file="/WEB-INF/jsp/include/foot.jsp"%>
+<%@include file="../include/foot.jspf"%>
 <script>
 
 function recoveryPhoneBookCb(num){
