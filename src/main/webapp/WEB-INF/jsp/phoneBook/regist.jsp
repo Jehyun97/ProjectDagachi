@@ -30,10 +30,10 @@
      <section class="col-10 mx-auto content-body"  >
      	<div class="btn-group btn-group-toggle row col-sm-12" data-toggle="buttons">
 			<label class="btn btn-secondary active col-sm-3" onchange="insertType()">
-				<input type="radio" name="options" value="1" checked=""> 공유
+				<input type="radio" name="phone_Book_Type" value="1" checked=""> 공유
 			</label>
 			<label class="btn btn-secondary col-sm-3" onchange="insertType()">
-				<input type="radio" name="options" value="2" > 개인
+				<input type="radio" name="phone_Book_Type" value="2" > 개인
 			</label>
 		</div>
      	<div class="mt-4">
@@ -129,7 +129,6 @@
      <input type="hidden" name="phone_Book_Phone" value="" />
      <input type="hidden" name="phone_Book_Email" value="" />
      <input type="hidden" name="phone_Book_Tag" value="" />
-     <input type="hidden" name="phone_Book_Type" value="" />
      <input type="hidden" name="phone_Book_Register" value="${param.phone_book_register }" />
      
      </form>

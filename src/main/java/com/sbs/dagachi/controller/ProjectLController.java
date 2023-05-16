@@ -1,7 +1,9 @@
 package com.sbs.dagachi.controller;
 
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,11 +46,23 @@ public class ProjectLController {
 		return "projectL/projectL_list";
 	}
 	
+	@RequestMapping("dagachi/projectL/moveAnotherTeam")
+	public String moveAnotherTeam(int pl_id, String team_name) {
+		projectLService.moveAnotherTeam(pl_id, team_name);
+		return"projectL/resultPLlist";
+	}
+	
 	
 	@RequestMapping("dagachi/projectL/plList")
-	public String showResultList(Model model, String teamName) {
+	public String showResultList(Model model, String teamName,HttpSession session) {
 		List<ProjectL>plList=projectLService.getPLlistByTeam(teamName);
+		Member loginUser=(Member)session.getAttribute("loginUser");
+		String userId=loginUser.getMember_id();
+		String dep=memberService.getMemberById(userId).getMember_department();//부서를 스트링으로 받아오기
+		int depInt=Integer.parseInt(dep);
+		List<TeamVO>teamlist=teamService.getTeamListByDep(depInt);
 		
+		model.addAttribute("teamlist", teamlist);
 		model.addAttribute("plList", plList);
 		
 		return "projectL/resultPLlist";
@@ -56,10 +70,27 @@ public class ProjectLController {
 		
 	}
 	
-	@RequestMapping("dagachi/projectL/plRegist")
-	public String showRegistForm(HttpSession session) {
+	@RequestMapping("dagachi/projectL/registForm")
+	public String showRegistForm(HttpSession session,Model model) {
+		Member loginUser=(Member)session.getAttribute("loginUser");
+		String pl_register=loginUser.getMember_id();
+		String dep=memberService.getMemberById(pl_register).getMember_department();//부서를 스트링으로 받아오기
+		int depInt=Integer.parseInt(dep);
+		List<TeamVO>teamlist=teamService.getTeamListByDep(depInt);
+		model.addAttribute("teamlist", teamlist);
+		return "projectL/registForm";
+	}
+	
+	@RequestMapping("dagachi/projectL/regist")
+	public String plRegist(HttpSession session, String pl_name,  @DateTimeFormat(pattern="yyyy-MM-dd")Date pl_endDate, 
+			String pl_manager, String pl_team, String pl_body,Model model) {
+		Member loginUser=(Member)session.getAttribute("loginUser");
+		String pl_register=loginUser.getMember_id();
 		
-		return "";
+		pl_manager="user3";
+		
+		projectLService.registPL(pl_name, pl_endDate, pl_register, pl_manager, pl_team, pl_body);
+		return showResultList(model, pl_register, session);
 	}
 	
 	

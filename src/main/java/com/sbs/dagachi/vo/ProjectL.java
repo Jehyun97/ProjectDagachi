@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProjectL {
-	int plId;
+	int pl_Id;
 	String pl_Name;
 	int pl_Kind_Status;
 	Date pl_StartDate;

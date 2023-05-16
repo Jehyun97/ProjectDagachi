@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../include/head.jspf"%>
-<div class="content-wrapper kanban" style="min-height: 1000px;">
+<div class="content-wrapper kanban" style="">
 <section class="content-header">
 <div class="container-fluid">
 <div class="row">
@@ -39,8 +39,8 @@
  	팀 업무 현황
 </h3>
 </div>
-<button type="button" class="btn bg-gradient col-sm-12" style="background:#f1f1f1;" onclick="OpenWindow('registForm','주소록 등록',800,800);">업무 등록</button>
-	<div class="resultSection">
+	<button type="button" class="btn btn-block btn-default btn-flat col-sm-12" onclick="OpenWindow('registForm','주소록 등록',800,700);">업무 등록하기</button>
+	<div class="resultSection" style="max-height:600px; overflow-y:scroll;">
 	<div class="alert alert-success alert-dismissible mustRemove">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 		<h5><i class="icon fas fa-check"></i> 팀을 선택해 주세요</h5>
@@ -52,6 +52,10 @@
 </div>
 </section>
 </div>
+
+
+<!-- 모달창 -->
+				
 
 
 <%@include file="../include/foot.jspf"%>
@@ -81,4 +85,32 @@ function replaceResult(str){
 		}
 	});
 }
+
+function OpenWindow(UrlStr, WinTitle, WinWidth, WinHeight){
+	winleft = (screen.width - WinWidth) / 2;
+	wintop = (window.screen.height - WinHeight) / 2;
+	var win = window.open(UrlStr , WinTitle , "scrollbars=yes,width="+ WinWidth+",height="+ WinHeight +",top="+wintop+",left="+ winleft +",resizable=yes" );
+	win.focus();
+}
+
+ function moveAnotherTeam(dex){
+	var name=$('select[name=moveTeam]').val();
+	
+	
+	if(confirm("해당 업무를 '"+name+"' 으로 넘기시겠습니까?")){
+		$.ajax({
+			url: "moveAnotherTeam",
+			datatype: "text",
+			data: {
+				pl_id: dex,
+				team_name: name
+			},
+			traditional: true,
+			success: function(data){
+				location.reload();
+			}
+		});
+	}
+} 
+
 </script>
