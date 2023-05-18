@@ -29,5 +29,15 @@ public class ProjectLService {
 		
 	}
 	
+	public String getTeamName(int pl_id) {
+		return projectLRepository.getTeamName(pl_id);
+				
+	}
+	
+	public void removePl(int pl_id) {
+		projectLRepository.removePl(pl_id);
+		
+	}
+	
 	
 }

@@ -8,6 +8,7 @@
 		where pl_team=#{pl_team}	
 	</select>
 	
+	
 	<update id="moveAnotherTeam">
 		update project_L
 		set
@@ -20,4 +21,16 @@
 		set
 		pl_name=#{pl_name}, pl_kind_status=0, pl_startDate=now(), pl_endDate=#{pl_endDate},pl_register=#{pl_register}, pl_manager=#{pl_manager}, pl_team=#{pl_team}, pl_body=#{pl_body}
 	</insert>
+	
+	<select id="getTeamName" resultType="String">
+		select pl_team
+		from project_L
+		where pl_Id=#{pl_Id}
+	</select>
+	
+	<delete id="removePl">
+		delete
+		from project_L
+		where pl_Id=#{pl_Id}
+	</delete>
 </mapper>

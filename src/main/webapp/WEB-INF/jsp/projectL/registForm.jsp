@@ -35,23 +35,24 @@
 
      		<div class="row mt-2">
     	 		<label for="" class="col-sm-3">마감기한*</label>
-	     		<input name="pl_endDate"type="date" class="col-sm-6 form-control phone" onchange=""/><!-- 데이트 받을곳 -->
+	     		<input name="pl_endDate"type="date" class="col-sm-6 form-control phone"/><!-- 데이트 받을곳 -->
      		</div>
      		
      		<div class="row mt-2">
     	 		<label for="" class="col-sm-3">상세업무 입력</label>
-	     		<input name="pl_body"type="text" class="col-sm-6 form-control mr-2" onchange=""/><!-- 데이트 받을곳 -->
-     			<button type="button" name="addTagBtn" onclick="" class="btn bg-gradient col-sm-2" 
-     			style="height:40px;background: #5865F2; color:#ffffff;">업무 추가</button>
+	     		<input name="pl_body"type="text" class="col-sm-6 form-control mr-2" onkeyup="enterKey();"/>
+     			<button type="button" class="btn bg-gradient col-sm-2"
+     			style="height:40px;background: #5865F2; color:#ffffff;" >업무 추가</button>
      		</div>
      		
      		<div class="row mt-2">
  	    		<label for="" class="col-sm-3">상세업무*</label>
-    	 		<div class="form-control col-sm-6" style="height:200px;">
-    	 			<ul class="col-sm-12" style="overflow-y: scroll; max-height:190px;">
-    	 				
+    	 		<div class="form-control col-sm-6 mr-2" style="height:200px;overflow-y: scroll;">
+    	 			<ul id="detailLi" class="col-sm-12 h-full" >
+    	 			
     	 			</ul>
     	 		</div>
+    	 		
      			
    			</div>
      		
@@ -79,6 +80,29 @@
 <%@include file="../include/openfoot.jsp"%>
 
 <script>
+function remove_go(dataNum){
+	var classText='.detail'+dataNum;
+	   $(classText).remove();
+}
+
+
+var i=1;
+function enterKey() {
+    if (window.event.keyCode == 13) {
+		//alert($('input[name=pl_body]').val());
+		var pmLi='<li class="detail'+i+' row" >'+'</li>';
+		var pmLiSpan='<span class="col-sm-11" style="overflow-x:hidden;">'+$('input[name=pl_body]').val()+'</span>'
+		var pmLiBtn="<button onclick='remove_go("+i+");'style='border:0;outline:0;' class='badge bg-red text-right' type='button'>x</button>"
+		//alert(pmLi);
+		$('#detailLi').append(pmLi);
+		var detailName='.detail'+i;
+		$(detailName).append(pmLiSpan);
+		$(detailName).append(pmLiBtn);
+		i++;
+		$('input[name=pl_body]').val('');
+    }
+}
+
 function replaceResult(str){
 	//alert(str);
 	
@@ -100,13 +124,29 @@ function replaceResult(str){
 function registPl(){
 	var formvalue=$('form[role=form]').serialize();
 	var teamname=$('select[name=pl_team]').val();
-	alert(formvalue);
+	var arr=[];
+	$('#detailLi li span').each(function(index, item){
+		//console.log(item.value);
+		arr.push(item.innerText);
+	});
+	
+	
+	
 	$.ajax({
 		url: "regist",
-		data: $('form[role=form]').serialize(),
+		
+		data: {
+			pl_name:$('input[name=pl_name]').val(),
+			pl_endDate:$('input[name=pl_endDate]').val(),
+			pl_manager:'',
+			pl_team: $('select[name=pl_team]').val(),
+			pl_bodyArr: arr 
+		},
+		traditional: true,
 		dataType: 'text',
+		
 		success: function(data){
-			window.opener.replaceResult(teamname);
+			window.opener.replaceResult($('select[name=pl_team]').val());
 			window.close();
 		}
 	});

@@ -52,7 +52,7 @@
 </div>
 </section>
 </div>
-
+<input type="hidden" name="inputIdValue" value="" />
 
 <!-- 모달창 -->
 				
@@ -61,6 +61,10 @@
 <%@include file="../include/foot.jspf"%>
 
 <script>
+function inputValue(dex){
+	$('input[name=inputIdValue]').val(dex)
+}
+
 window.onload=function(){
 	if(${memberAuth}===1){
 		alert("권한이 없습니다.");
@@ -93,24 +97,6 @@ function OpenWindow(UrlStr, WinTitle, WinWidth, WinHeight){
 	win.focus();
 }
 
- function moveAnotherTeam(dex){
-	var name=$('select[name=moveTeam]').val();
-	
-	
-	if(confirm("해당 업무를 '"+name+"' 으로 넘기시겠습니까?")){
-		$.ajax({
-			url: "moveAnotherTeam",
-			datatype: "text",
-			data: {
-				pl_id: dex,
-				team_name: name
-			},
-			traditional: true,
-			success: function(data){
-				location.reload();
-			}
-		});
-	}
-} 
+
 
 </script>
