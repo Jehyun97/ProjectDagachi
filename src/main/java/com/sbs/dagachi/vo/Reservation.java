@@ -18,6 +18,20 @@ public class Reservation {
 	private Date reservation_end;
 	private String reservation_member;
 	private Date reservation_regtime;
+	private String reservation_title;
+	
+	
+	
+	public Date getReservationEnd() {
+	    
+	    return new Date(); 
+	}
+
+	public Date getReservationStart() {
+	   
+	    return new Date(); 
+	}
+
 	
 
 }
