@@ -1,0 +1,73 @@
+2023-05-20 21:45:29 [WARN ] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Thread starvation or clock leap detected (housekeeper delta=1d3h9m14s72ms547µs).
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Fill pool skipped, pool has sufficient level or currently being filled (queueDepth=0).
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3c23cae: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Add connection elided, waiting=0, adders pending/running=1
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27f29357
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4ee5861f: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@744a8c1c: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@269e97bb: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22d0c9da: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7377745d: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@42ff3695: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3e94a3b6: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1be27b82: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@43cb1f4: (connection has passed maxLifetime)
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@66cf996c
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5763df2f
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6e06623
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6f2dc14c
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@726e1242
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4799ff82
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4f25bb4f
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6bff9862
+2023-05-20 21:45:29 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1ecb64c3
+2023-05-20 21:45:45 [INFO ] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-05-20 21:45:45 [DEBUG] o.s.b.a.ApplicationAvailabilityBean - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2023-05-20 21:45:45 [DEBUG] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@17a9f9e6, started on Fri May 19 18:28:35 KST 2023
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147482623
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerGracefulShutdown' completed its stop procedure
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase 2147481599
+2023-05-20 21:45:45 [INFO ] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8011"]
+2023-05-20 21:45:45 [INFO ] o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-20 21:45:45 [INFO ] o.a.c.c.C.[Tomcat-5].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-20 21:45:45 [WARN ] o.a.c.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-8 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-05-20 21:45:45 [INFO ] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8011"]
+2023-05-20 21:45:45 [INFO ] o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8011"]
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'webServerStartStop' completed its stop procedure
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Stopping beans in phase -2147483647
+2023-05-20 21:45:45 [DEBUG] o.s.c.s.DefaultLifecycleProcessor - Bean 'springBootLoggingLifecycle' completed its stop procedure
+2023-05-20 21:45:45 [DEBUG] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2023-05-20 21:45:45 [DEBUG] o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2023-05-20 21:45:45 [DEBUG] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2023-05-20 21:45:45 [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@27f29357: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@66cf996c: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5763df2f: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6e06623: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6f2dc14c: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@726e1242: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4799ff82: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4f25bb4f: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@6bff9862: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.PoolBase - HikariPool-8 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1ecb64c3: (connection evicted)
+2023-05-20 21:45:45 [DEBUG] com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2023-05-20 21:45:45 [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
