@@ -14,5 +14,11 @@
 	FROM MEMBER
 	WHERE member_id = #{member_id}
 	</select>
+	
+	<select id="getMemberListByTeam" resultType="Member">
+		SELECT *
+		FROM MEMBER
+		where member_team=#{team}
+	</select>
 
 </mapper>

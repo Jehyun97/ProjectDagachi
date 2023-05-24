@@ -7,5 +7,11 @@
 		from Team
 		where team_dep=#{dep}
 	</select>
+	
+	<select id="getTeamByCode" resultType="TeamVO">
+		select *
+		from Team
+		where Team_id=#{team}
+	</select>
 
 </mapper>

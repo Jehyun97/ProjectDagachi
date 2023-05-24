@@ -90,7 +90,7 @@ var i=1;
 function enterKey() {
     if (window.event.keyCode == 13) {
 		//alert($('input[name=pl_body]').val());
-		var pmLi='<li class="detail'+i+' row" >'+'</li>';
+		var pmLi='<li class="detail'+i+' row mt-2" >'+'</li>';
 		var pmLiSpan='<span class="col-sm-11" style="overflow-x:hidden;">'+$('input[name=pl_body]').val()+'</span>'
 		var pmLiBtn="<button onclick='remove_go("+i+");'style='border:0;outline:0;' class='badge bg-red text-right' type='button'>x</button>"
 		//alert(pmLi);

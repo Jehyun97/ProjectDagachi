@@ -10,5 +10,6 @@ import com.sbs.dagachi.vo.TeamVO;
 public interface TeamRepository {
 
 	List<TeamVO> getTeamListByDep(int dep);
+	TeamVO getTeamByCode(int team);
 	
 }

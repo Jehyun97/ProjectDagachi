@@ -19,7 +19,7 @@
 	<insert id="registPL">
 		insert into project_L
 		set
-		pl_name=#{pl_name}, pl_kind_status=0, pl_startDate=now(), pl_endDate=#{pl_endDate},pl_register=#{pl_register}, pl_manager=#{pl_manager}, pl_team=#{pl_team}, pl_body=#{pl_body}
+		pl_name=#{pl_name}, pl_kind_status=0, pl_startDate=now(), pl_endDate=#{pl_endDate},pl_register=#{pl_register}, pl_manager=#{pl_manager}, pl_team=#{pl_team}
 	</insert>
 	
 	<select id="getTeamName" resultType="String">
@@ -33,4 +33,14 @@
 		from project_L
 		where pl_Id=#{pl_Id}
 	</delete>
+	
+	<select id="getPLByPLId" resultType="ProjectL">
+		select *
+		from project_L
+		where PL_ID=#{pl_Id}
+	</select>
+	
+	<select id="getLastInsertedId" resultType="int">
+		SELECT LAST_INSERT_ID(); 
+	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.sbs.dagachi.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProjectL {
+	
+	
+	
 	int pl_Id;
 	String pl_Name;
 	int pl_Kind_Status;
@@ -19,4 +23,6 @@ public class ProjectL {
 	String pl_Manager;
 	String pl_Team;
 	String pl_Body;
+	
+	List<PM>extra_pmList;
 }

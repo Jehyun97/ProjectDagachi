@@ -85,7 +85,7 @@
 </div>
 <div class="modal-footer justify-content-between">
 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary" onclick="moveTeam();" data-dismiss="modal">Save changes</button>
+<button type="button" class="btn btn-primary" onclick="moveTeam();" data-dismiss="modal">확인</button>
 </div>
 </div>
 
@@ -131,7 +131,7 @@
 		});
 		//alert(arr);
 		$('input[name=inputValue]').val(arr);
-		alert($('input[name=inputValue]').val());
+		//alert($('input[name=inputValue]').val());
 		
 		if(confirm('해당 업무를 취소 하시겠습니까?')){
 			$.ajax({
@@ -143,6 +143,7 @@
 				traditional: true,
 				success: function(data){
 					$('#afterSelect').empty();
+					window.opener.location.reload();
 				}
 				
 			});
@@ -158,7 +159,7 @@
 		});
 		//alert(arr);
 		$('input[name=inputValue]').val(arr);
-		alert($('input[name=inputValue]').val());
+		//alert($('input[name=inputValue]').val());
 		var tn=$('#moveTeamName').val();
 		
 		if(confirm('해당 업무를 이동 하시겠습니까?')){
@@ -172,7 +173,7 @@
 				traditional: true,
 				success: function(data){
 					$('#afterSelect').empty();
-					window.openr.location.reload();
+					window.opener.location.reload();
 				}
 				
 			});

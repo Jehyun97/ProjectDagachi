@@ -19,6 +19,9 @@ public class TeamService {
 		return teamRepository.getTeamListByDep(dep);
 	}
 	
+	public TeamVO getTeamByCode(int team) {
+		return teamRepository.getTeamByCode(team);
+	}
 	
 	
 	

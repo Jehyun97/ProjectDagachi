@@ -49,6 +49,10 @@ public class MemberService {
 	}
 	
 	
+	public List<Member>getMemberListByTeam(int team){
+		return memberRepository.getMemberListByTeam(team);
+	}
+	
 	
 	
 }

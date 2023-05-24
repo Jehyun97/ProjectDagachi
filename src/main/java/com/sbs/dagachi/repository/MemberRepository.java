@@ -13,4 +13,6 @@ public interface MemberRepository {
 	
 	Member getMemberById(String member_id);
 	
+	List<Member> getMemberListByTeam(int team);
+	
 }
