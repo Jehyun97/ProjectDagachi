@@ -8,7 +8,13 @@
 <input type="hidden" name="member_team" value="${department.team}">
 <div class="col-md-12" style="margin-top:10px; margin-right:10px; display:flex; ">
 <div class="col-md-7" style="margin-right:20px; ">
-<div style="display:flex;justify-content:center;">
+
+	<div class="card card-success" style="margin-top:15px; width:580px;">
+<div class="card-header" style="background-color:#333c9e;">
+ 
+
+  <div style="text-align: left;">
+    <div style="display:flex;justify-content:center;">
 <c:set var="member" value="${memberdepartmentname[0]}"/>
   ${member.member_rank}: ${member.member_name}
 <c:forEach var="Team" items="${Teams}">
@@ -28,7 +34,7 @@
     </c:choose>
     <c:forEach var="member" items="${memberdepartmentname}" varStatus="status">
       <c:if test="${status.index != 0 and member.member_team == Team.team}">
-        ${member.member_name} 
+        ${member.member_name} &nbsp;
       </c:if>
     </c:forEach>
   </span>
@@ -47,6 +53,13 @@
 			</c:if>
 </span>
 </div>
+  </div>
+<div class="card-tools" style="text-align: left;">
+</div>
+
+</div>
+
+<div class="card-body">
 <table class="table table-fixed w-full">
 	<thead>
 		<tr>
@@ -70,25 +83,25 @@
 			 <td>
 				<c:choose>
 				  <c:when test="${teamdetail.attendence_status eq 1}">
-				    <button type="button" style="background-color:#5865F2; border:none;">출근</button>
+				    <button class="badge bg-Disabled" type="button" style="background-color:#c3c7f8; border:none;">출근</button>
 				  </c:when>
 				  <c:when test="${teamdetail.attendence_status eq 2}">
-				    <button type="button" style="background-color:#D8BFD8; border:none;">퇴근</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#D8BFD8; border:none;">퇴근</button>
 				  </c:when>
 				  <c:when test="${teamdetail.attendence_status eq 3}">
-				    <button type="button" style="background-color:#FF6347; border:none;">자리비움</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#f5a395; border:none;">자리비움</button>
 				  </c:when>
 				  <c:when test="${teamdetail.attendence_status eq 4}">
-				    <button type="button" style="background-color:#ffd400; border:none;">월차</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#f8e589; border:none;">월차</button>
 				  </c:when>
 				  <c:when test="${teamdetail.attendence_status eq 5}">
-				    <button type="button" style="background-color:#808080; border:none;">조퇴</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#c8c7c7; border:none;">조퇴</button>
 				  </c:when>
 				  <c:when test="${teamdetail.attendence_status eq 6}">
-				    <button type="button" style="background-color:#81c147; border:none;">연차</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#bef78b; border:none;">연차</button>
 				  </c:when>
 				  <c:otherwise>
-				    <button type="button" style="background-color:#FF0000; border:none;">결근</button>
+				    <button class="badge bg-Disabled"type="button" style="background-color:#FF0000; border:none;">결근</button>
 				  </c:otherwise>
 				</c:choose>
 			</td>
@@ -98,6 +111,9 @@
 		</c:forEach>
 	</tbody>
 </table>
+</div>
+</div>
+
 </div>
 <div class="col-md-5" >
 <iframe  id='my_frame' style=" border:none; width:350px; height: 600px; margin-right:30px;"> 

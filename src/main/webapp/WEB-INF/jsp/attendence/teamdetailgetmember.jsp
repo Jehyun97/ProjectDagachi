@@ -5,7 +5,128 @@
 <%@include file="/WEB-INF/jsp/include/openhead.jspf" %>
 <input type="hidden" name="member_name" value="${member_name }"/>
 
+
+	<div class="card card-success" style="margin-top:15px;">
+<div class="card-header" style="background-color:#333c9e;">
 <div style="margin-left:10px;">
+<span style="width:100px;height:100px; background-color:red;">사진</span>
+<c:forEach items="${member }" var="member">
+    <c:set var="departmentName" value=""/>
+    <c:choose>
+        <c:when test="${member.member_department == '1'}">
+            <c:set var="departmentName" value="인사"/>
+        </c:when>
+        <c:when test="${member.member_department == '2'}">
+            <c:set var="departmentName" value="마케팅"/>
+        </c:when>
+        <c:when test="${member.member_department == '3'}">
+            <c:set var="departmentName" value="영업"/>
+        </c:when>
+        <c:when test="${member.member_department == '4'}">
+            <c:set var="departmentName" value="관리"/>
+        </c:when>
+    </c:choose>
+    <c:set var="teamName" value=""/>
+    <c:choose>
+        <c:when test="${member.member_team == '1' || member.member_team == '4' || member.member_team == '7' || member.member_team == '10'}">
+            <c:set var="teamName" value="1"/>
+        </c:when>
+        <c:when test="${member.member_team == '2' || member.member_team == '5' || member.member_team == '8' || member.member_team == '11'}">
+            <c:set var="teamName" value="2"/>
+        </c:when>
+        <c:when test="${member.member_team == '3' || member.member_team == '6' || member.member_team == '9' || member.member_team == '12'}">
+            <c:set var="teamName" value="3"/>
+        </c:when>
+    </c:choose>
+    <span style="text-align:center;">${departmentName} 부서&nbsp;&nbsp;&nbsp;&nbsp;${teamName}팀&nbsp;&nbsp;&nbsp;&nbsp;${member.member_rank}&nbsp;&nbsp;&nbsp;&nbsp;${member.member_name}</span>
+</c:forEach>
+
+</div>
+<div class="card-tools" style="text-align: left;">
+</div>
+
+</div>
+
+<div class="card-body">
+<table class="table table-fixed w-full">
+  <colgroup>   
+	        
+	         
+	        </colgroup>
+<thead>
+		<tr>
+			<th>출근</th>
+			<th>지각</th>
+			<th>결근</th>
+			<th>조퇴</th>
+			<th>출근률</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>${TotalStatus1} </td>
+			<td>${TotalStatus7Count }</td>
+			<td id="totalwark"></td>
+			<td>${TotalStatus5Count }</td>
+			<td id="total">출근률</td>
+		</tr>
+	</tbody>
+</table>
+<table class="table table-fixed w-full">
+ <colgroup>   
+	          <%-- <col width="50"/>
+	          <col width="100"/>
+	          <col width="100"/>
+	          <col width="100"/>
+	          <col width="100"/> --%>
+	         
+	        </colgroup>
+<thead>
+		<tr>
+			<th>날짜</th>
+			<th>출근</th>
+			<th>퇴근</th>
+			<th>상태</th>
+		</tr>
+	</thead>
+	<tbody>
+		  <c:forEach var="getMemberList" items="${getMemberLists}">
+		<tr>
+		    <td>${getMemberList['attendence_regdate'].toLocalDate().toString().substring(0, 10)}</td>
+		    <td>${getMemberList['출근시간']}</td>
+		    <td>${getMemberList['퇴근시간']}</td>
+		    <td>
+		    <c:choose>
+				  <c:when test="${getMemberList['근태상태'] eq 1}">
+				    <button class="badge bg-Disabled"type="button" style="background-color:#c3c7f8; border:none;">출근</button>
+				  </c:when>
+				  <c:when test="${getMemberList['근태상태'] eq 2}">
+				    <button class="badge bg-Disabled" type="button" style="background-color:#D8BFD8; border:none;">퇴근</button>
+				  </c:when>
+				  <c:when test="${getMemberList['근태상태'] eq 3}">
+				    <button class="badge bg-Disabled"type="button" style="background-color:#f5a395; border:none;">자리비움</button>
+				  </c:when>
+				  <c:when test="${getMemberList['근태상태'] eq 4}">
+				    <button class="badge bg-Disabled"type="button" style="background-color:#f8e589; border:none;">월차</button>
+				  </c:when>
+				  <c:when test="${getMemberList['근태상태'] eq 5}">
+				    <button class="badge bg-Disabled"type="button" style="background-color:#c8c7c7; border:none;">조퇴</button>
+				  </c:when>
+				  <c:when test="${getMemberList['근태상태'] eq 6}">
+				    <button class="badge bg-Disabled"type="button" style="background-color:#bef78b; border:none;">연차</button>
+				  </c:when>
+				  <c:otherwise>
+				    <button type="button" style="background-color:#FF0000; border:none;">결근</button>
+				  </c:otherwise>
+				</c:choose>
+		    </td>
+		</tr>
+		  </c:forEach>
+	</tbody>
+</table>
+</div>
+</div>
+<%-- <div style="margin-left:10px;">
 <span style="width:100px;height:100px; background-color:red;">사진</span>
 <c:forEach items="${member }" var="member">
     <c:set var="departmentName" value=""/>
@@ -102,7 +223,7 @@
 		</tr>
 		  </c:forEach>
 	</tbody>
-</table>
+</table> --%>
 
 <script>
 	var today = new Date();

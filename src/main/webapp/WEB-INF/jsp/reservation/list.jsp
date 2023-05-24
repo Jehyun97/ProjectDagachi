@@ -7,7 +7,12 @@
 
 <%@include file="/WEB-INF/jsp/include/head.jspf" %>
 
+<style>
+#bar{
+ width: 50px;
 
+}
+</style>
 
 
 
@@ -19,24 +24,36 @@
 		<c:if test="${loginUser.member_auth eq 2 or loginUser.member_auth eq 3}">
   <div id="btngroup" style="display:flex;">
     <div class="insertbtn" style="margin: 10px;">
-      <button type="button" style="background-color:#5865F2; color:white; border:none;" data-toggle="modal" data-target="#insertroom">신규 회의실 등록</button>
+      <button type="button" style="background-color:#717cfa;  border:none; border-radius:5px;" data-toggle="modal" data-target="#insertroom">신규 회의실 등록</button>
     </div>
     <div class="modifybtn" style="margin: 10px;">
-      <button type="button" style="background-color:#FFC107; color:black; border:none;" data-toggle="modal" data-target="#modifyroom">회의실 정보 수정</button>
+      <button type="button" style="background-color:#ffd865;  border:none;border-radius:5px;" data-toggle="modal" data-target="#modifyroom">회의실 정보 수정</button>
     </div>
   </div>
 </c:if>
 
+<div class="col-md-5" >
+ <div id="baritem" style="display:flex; justify-content:end; margin-top:20px;">
+      <div id="bar"style="background-color: red; height: 25px; margin-right:5px;"></div>
+      <div style="width:100px;">예약 불가</div>
+      
+      <div id="bar"style="background-color: green; height: 25px;margin-right:5px;"></div>
+      <div style="width:100px;">나의 예약</div>
+      </div>
+</div>
+
 <div class="container">
   <div class="" style="margin-top: 10px; display: flex;">
-    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
+          
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; width:200px;">
       <div style="flex-grow: 1;"></div>
       <c:forEach var="room" items="${room}">
-        <button class="room-button" style="background-color:#5865F2; color:white;border:none; margin-top:5px; margin-right:20px; "data-room-code="${room.room_code}" onclick="showEvents('${room.room_code}')">${room.room_name}</button>
+        <button class="room-button" style="background-color:#8f97f5; border:none; margin-top:5px; margin-right:20px; "data-room-code="${room.room_code}" onclick="showEvents('${room.room_code}')">${room.room_name}</button>
       </c:forEach>
       <div style="flex-grow: 1;"></div>
     </div>
-    <div id="calendar" style="width: 1000px;"></div>
+    <div id="calendar" style="width: 1800px;"></div>
+  
   </div>
 </div>
      <form class="flex" style="text-align:right;margin-right:10px;">
@@ -440,11 +457,11 @@
               if (eventData.reservation_member === loginUser) {
                   eventData.backgroundColor = 'green';
                   eventData.color='green';
-                  eventData.textColor = 'white';
+                  eventData.textColor = 'black';
                 } else {
                   eventData.backgroundColor = 'red';
                   eventData.color='red';
-                  eventData.textColor = 'white';
+                  eventData.textColor = 'black';
                 }
 
                 return eventData;
@@ -455,8 +472,11 @@
             }
           });
         }
+     	
+        
         calendar.unselect();
       },
+     
       events: function(fetchInfo, successCallback, failureCallback) {
         $.ajax({
           url: '/reservation/getCalendar',
@@ -476,12 +496,12 @@
               };
               
               if (eventData.reservation_member === loginUser) {
-                  eventData.backgroundColor = 'green';
-                  eventData.color='green';
+                  eventData.backgroundColor = '#39D039';
+                  eventData.color='#39D039';
                   eventData.textColor = 'white';
                 } else {
-                  eventData.backgroundColor = 'red';
-                  eventData.color='red';
+                  eventData.backgroundColor = '#f44336';
+                  eventData.color='#f44336';
                   eventData.textColor = 'white';
                 }
 
@@ -652,9 +672,7 @@
                             end: reservation_end
                         };
                         calendar.addEvent(eventData);
-                        $("#calendarModal").modal("hide");
-                        
-                       
+                        $("#calendarModal").modal("hide"); 
                         location.reload();
                     } else if (response === "isOverlappingEventserror") {
                         alert("해당 회의실은 이미 예약된 시간과 겹칩니다. 다시 선택해주세요.");
@@ -665,6 +683,7 @@
                       
                     }
                     $("#calendarModal").modal("hide");
+                    location.reload();
                    
                 },
                 error: function(xhr, textStatus, errorThrown) {
@@ -697,7 +716,15 @@
               room_code: event.room_code,
               reservation_member: event.member
             };
-
+            if (eventData.reservation_member === loginUser) {
+                eventData.backgroundColor = '#39D039';
+                eventData.color='#39D039';
+                eventData.textColor = 'white';
+              } else {
+                eventData.backgroundColor = '#f44336';
+                eventData.color='#f44336';
+                eventData.textColor = 'white';
+              }
 
             return eventData;
           });

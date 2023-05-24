@@ -10,22 +10,28 @@
 
 <div class="col-md-12" style="margin-top:10px; margin-right:10px; display:flex; ">
 <div class="col-md-8" style="margin-right:20px;  ">
-<div style="background-color:#5865F2; color:white;">
-<span style="background-color:#5865F2;">
+
+
+
+<div class="col-md-3">
+<div class="card card-primary" style="width:980px; ">
+<div class="card-header" style=" background-color:#333c9e;">
+<h5 class="card-title">
+<div style="color:white; margin-left:10px; margin-top:10px;">
+<span >
 <c:set var="Team" value="${Teams[0]}"/>
 ${Team.name}
 부서 부장 :<c:set var="member" value="${memberdepartmentname[0]}"/>
   ${member.member_name}
 </span>
 
-<c:forEach var="Team" items="${Teams }"><span style="margin-left:10px;background-color:#5865F2;">${Team.name}${Team.team }팀 팀장:<c:forEach var="member" items="${memberdepartmentname}" varStatus="status">
+<c:forEach var="Team" items="${Teams }"><span style="margin-left:10px;">${Team.name}${Team.team }팀 팀장:<c:forEach var="member" items="${memberdepartmentname}" varStatus="status">
       <c:if test="${status.index != 0 and member.member_team == Team.team}">
         ${member.member_name} 
       </c:if>
     </c:forEach></span></c:forEach>
 </div>
-<table class="table table-fixed w-full">
-  <thead>
+<table class="table table-fixed w-full" style="margin-top:15px; ">
   <tr>
     <th id="TOTALWORK" style="" >이달 총 근태/이달 총 근무일</th>
   
@@ -58,6 +64,17 @@ ${Team.name}
 </c:forEach>
 </td>
   </tr>
+		<tr>
+</table></h5>
+<div class="card-tools">
+
+</div>
+
+</div>
+
+<div class="card-body">
+<table class="table table-fixed w-full">
+  <thead>
 		<tr>
 		
 	
@@ -109,17 +126,23 @@ ${Team.name}
     </c:forEach>
   </tbody>
 </table>
+</div>
+
+</div>
+
+</div>
+
 
 
 
    <div class="row">
   <div class="col">
-    <nav aria-label="Contacts Page Navigation">
+    <nav aria-label="Contacts Page Navigation" >
       <c:set var="pageMenuArmLen" value="4" />
       <c:set var="startPage" value="${page - pageMenuArmLen < 1 ? 1 : page - pageMenuArmLen}" />
       <c:set var="endPage" value="${page + pageMenuArmLen > pagesCount ? pagesCount : page + pageMenuArmLen}" />
       <c:set var="pageBaseUri" value="member_department=${empty param.member_department ? '' : param.member_department}&searchKeyword=${param.searchKeyword}&searchKeywordTypeCode=${param.searchKeywordTypeCode}" />
-      <ul class="pagination justify-content-center m-0">
+      <ul class="pagination justify-content-center m-0"  >
         <c:if test="${startPage > 1}">
           <li class="page-item">
             <a class="page-link btn btn-sm" href="?${pageBaseUri}&page=1">1</a>
@@ -198,9 +221,9 @@ ${Team.name}
 		</tr>
 	</tbody>
 </table>
-<ul>
+<ul style="list-style: none;">
 <c:forEach var="Team" items="${Teams}">
-  <li>
+  <li style=" font-weight: bold;">
     <c:choose>
       <c:when test="${Team.team == 1 || Team.team == 4 || Team.team == 7 || Team.team == 10}">
         ${Team.name} 1팀
@@ -224,6 +247,9 @@ ${Team.name}
   </c:forEach>
 </c:forEach>
 </ul>
+</div>
+</div>
+
 
 
 

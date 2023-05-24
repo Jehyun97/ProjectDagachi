@@ -4,15 +4,30 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="/WEB-INF/jsp/include/head.jspf" %>
+<style>
+.rounded_div {
+  border-radius: 20%;
+  background-color:#1d2472;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+</style>
 <input type="hidden" name="${attendence.attendence_regDate }"/>
 <div class="content-wrapper" >	
 	<h2 style="margin:10px;">근태 관리</h2>
 
 		<div class="col-lg-12" style="display:flex; justify-content:start;" >
-		<div class="info-box mb-6 "  style="background-color:#36454f;">
+		<div class="info-box mb-6 "  style="background-color: #333c9e;">
 		<div class="member" style="display:flex; justify-content:center; color:white;">
 	
-		<span class="info-box-icon"><div class="member_pic" style=" margin:10px; background-color:red; height:100px; width:100px;">사진</div></span>
+		<span class="info-box-icon"><div class="member_pic" style=" margin:10px; background-color:white; height:100px; width:100px;border-radius:50%; ">사진</div></span>
 		<div class="info-box-content">
 		<span class="info-box-text"></span>
 			<div>
@@ -32,39 +47,37 @@
 			<span>직급 : ${loginUser.member_rank }</span></span>
 		</div>
 		</div>
-		<div class="col-lg-6 col-6" style="margin-left:auto;text-align:center; ">
-		<div class="small-box bg-warning" style="">
-		<div class="inner" style="background-color:#36394d; width:800px; height:100px; color:white; font-size:1.2rem;">
-		<input type="hidden" name="vacation_member"/>
-			
-				<span class="delYear"><a href="#"  style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;">잔여 연차 횟수 : ${vacationYear -  DelYear }</a></span>
-			
-		
-				<span><a href="#"  style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;">잔여 월차 횟수 : ${vacationMonth - DelMonth }</a></span>
-			
-		
-		</div>
-		<div class="icon">
-		</div>
-		
-		</div>
-		</div>
+<div class="col-lg-6 col-6" style="margin-left: auto; text-align: center;">
+  <div class="inner" style="width: 800px; height: 100px; color: white; font-size: 1.2rem; display: flex;">
+    <input type="hidden" name="vacation_member" />
+
+    <div class="rounded_div" style="margin-right: 50px;">
+    <div class="text-block"><a href="#" style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;">잔여 연차</a></div>
+      <span class="delYear"><a href="#" style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;"><div style="font-weight: bold;">${vacationYear - DelYear}</div></a></span>
+    </div>
+
+    <div class="rounded_div">
+    <div class="text-block"><a href="#" style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;">잔여 월차</a></div>
+      <span><a href="#" style="color: inherit;" onclick="openwindow('/attendence/vacationdetail');return false;"><div style="font-weight: bold;">${vacationMonth - DelMonth}</div></a></span>
+    </div>
+  </div>
+</div>
 
 		</div>
 		</div>
 
   <div class="select" style="display:flex; margin:15px; justify-content:space-around;">
 	  <div class="mine">
-	    <a href="#" onclick='open_in_frame("/attendence/mylist")' style="color: inherit; none">내 근태</a>
+	    <a href="#" onclick='open_in_frame("/attendence/mylist")' style="color: inherit; none ; font-weight: bold;">근태 조회</a>
 	  </div>
  <c:if test="${loginUser.member_auth == 3}">
     <div class="department-or-team">
-        <a href="#" onclick='open_in_frame("/attendence/departmentlist")' style="color: inherit;">부서별 근태</a>
+        <a href="#" onclick='open_in_frame("/attendence/departmentlist")' style="color: inherit; font-weight: bold;">부서별 근태 조회</a>
     </div>
 </c:if>
 <c:if test="${loginUser.member_auth == 2}">
     <div class="department-or-team">
-        <a href="#" onclick='open_in_frame("/attendence/teamlist")' style="color: inherit;">팀별 근태</a>
+        <a href="#" onclick='open_in_frame("/attendence/teamlist")' style="color: inherit; font-weight: bold;">팀별 근태 조회</a>
     </div>
 </c:if>
 
@@ -225,7 +238,7 @@
 
 <script>
 function openwindow(url) {
-  window.open(url, 'vacationdetail', 'width=600,height=400');
+  window.open(url, 'vacationdetail', 'width=800,height=600');
 }
 </script>
 
