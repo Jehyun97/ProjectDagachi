@@ -18,9 +18,9 @@ public class Member {
 	private String member_address;
 	private Date member_regdate;
 	private String member_phone;
-	private int member_department;
-	private int member_team;
-	private String member_reak;
+	private String member_department;
+	private String member_team;
+	private String member_rank;
 	private int member_status;
 	private Date member_deldate;
 	private Date birth;

@@ -32,7 +32,7 @@ function summernote_go(target,context){
 	   target.summernote({
 	      placeholder:'여기에 내용을 적으세요.',
 	      lang:'ko-KR',
-	      height:800,
+	      height:600,
 	      dsableResizeEditor: true,
 	      callbacks:{
 	         onImageUpload: function(files, editor, welEditalbe){

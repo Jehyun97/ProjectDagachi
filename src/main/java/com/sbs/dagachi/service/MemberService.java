@@ -24,6 +24,11 @@ public class MemberService {
 		return memberList;
 		
 	}
+	public List<Member>getMembersNameByteam(String member_team){
+		List<Member>memberList=memberRepository.getMembersNameByteam(member_team);
+		
+		return memberList;
+	}
 	public Member getMemberById(String member_id) {
 		 Member member= memberRepository.getMemberById(member_id);
 		return member;

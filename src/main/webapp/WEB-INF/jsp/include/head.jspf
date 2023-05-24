@@ -32,10 +32,6 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="/resource/bootstrap/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Right navbar links -->
@@ -216,7 +212,7 @@
         </div>
              <button onclick="" class="btn btn-sidebar" style="margin-left:5px; margin-top:5px; background-color:#AAAAAA;">상태변경</button>
 		       <button onclick="" class="btn btn-sidebar" style="margin-left:15px; margin-top:5px; background-color:#AAAAAA;">마이페이지</button>
-		       <button onclick="" class="btn btn-sidebar" style="margin-left:15px; margin-top:5px; background-color:#AAAAAA;">로그아웃</button>
+		       <button id="logout" onclick="logout_go()" class="btn btn-sidebar" style="margin-left:15px; margin-top:5px; background-color:#AAAAAA;">로그아웃</button>
       </div>
 
       <!-- Sidebar Menu -->
@@ -231,17 +227,23 @@
                   style="color:white;">전자결재</button>
         </h2>
       </div>
-      <div id="collapse1" class="collapse"
-           aria-labelledby="headingOne" data-parent="#accordion">
+       <div id="collapse1" class="collapse"
+           aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body">
          <div>
-          		<a href="">발신</a>
+          		<a href="../approval/main">메인페이지</a>
+        	 </div>
+         <div>
+          		<a href="../approval/registForm">새 결재 작성</a>
+        	 </div>
+         <div>
+          		<a href="../approval/list?Type=approval&save=1">내가 상신한 문서</a>
         	 </div>
         	<div>
-          		<a href="">수신</a>
+          		<a href="../approval/list?Type=approver&save=1">내가 결재할 문서</a>
           	</div>
           	<div>
-          		<a href="">임시저장</a>
+          		<a href="../approval/list?Type=save&save=2">임시 저장함</a>
          	</div>
         </div>
       </div>

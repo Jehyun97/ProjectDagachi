@@ -4,34 +4,11 @@
   </footer>
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+  
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
    <!-- ./wrapper -->
-   
-   
-   <script>
-   function logout_go(){
-	   if(confirm("정말 로그아웃 하시겠습니까?") == true){ 
-		   //true는 확인버튼을 눌렀을 때 코드 작성
-		  location.href="../common/logout";
-		 }else{
-		   // false는 취소버튼을 눌렀을 때, 취소됨
-		   console.log("취소되었습니다");
-		 }
-	   
-	   
-   }
-   
-   
-   
-   
-   
-   
-   </script>
 
 
    <!-- REQUIRED SCRIPTS -->
