@@ -151,7 +151,8 @@
 				${cancel.ps_title }
 				</div>
 				<div>
-				${cancel.ps_EndDate }
+				<fmt:formatDate value="${cancel.ps_EndDate }" pattern="yyyy-MM-dd" var="endDate"/>
+				마감기한: ${endDate }
 				</div>
 			</div>
 		
