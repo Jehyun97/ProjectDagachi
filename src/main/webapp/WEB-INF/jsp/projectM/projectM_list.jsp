@@ -37,7 +37,7 @@
 <div class="card card-row col-sm-4 card-success"><!-- 여기에 어펜드 걸어서 할 것  -->
 <div class="card-header">
 <h3 class="card-title">
- 	등록할 업무
+ 	${teamName} 전체 업무
 </h3>
 </div>
 	<div class="resultSectionPl" style="max-height:90%; overflow-y:scroll;">

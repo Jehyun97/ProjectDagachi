@@ -66,4 +66,10 @@
 		where ps_id=#{ps_id}
 	</select>
 	
+	<delete id="removePS">
+		delete
+		from project_s
+		where ps_id=#{ps_id}
+	</delete>
+	
 </mapper>

@@ -72,7 +72,7 @@ public class ProjectSController {
 	@RequestMapping("dagachi/projectS/remove")
 	public String remove(String ps_id, HttpSession session, Model model) {
 		int ps_idInt=Integer.parseInt(ps_id);
-		//pSService.removePS(ps_id);
+		pSService.removePS(ps_id);
 		Member loginUser=(Member)session.getAttribute("loginUser");
 		String loginId=loginUser.getMember_id();
 		

@@ -44,7 +44,7 @@ public class ProjectMController {
 		List<Member>memberList=memberService.getMemberListByTeam(teamCode);
 		TeamVO team=teamService.getTeamByCode(teamCode);
 		List<ProjectL>plList=projectLService.getPLlistByTeam(team.getTeam_name());
-		
+		model.addAttribute("teamName",team.getTeam_name());
 		model.addAttribute("memberList", memberList);
 		model.addAttribute("plList", plList);
 		

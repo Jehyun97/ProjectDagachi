@@ -27,6 +27,8 @@ public interface PSRepository {
 	List<PS> getPSListByPmId(int pm_id);
 	
 	PS getPSByPsId(int ps_id);
+
+	void removePS(int ps_idInt);
 	
 	
 }

@@ -38,7 +38,7 @@
 			<input type="hidden" name="pl_id_value" value="" />
 				<div class="info-box-content">
 					<h3>${pl.pl_Name }</h3>
-					<span>현재 진헹율 ${percent} %</span>
+					<span>현재 진행율 ${percent} %</span>
 					<div class="progress">
 						<div class="progress-bar bg-warning" style="width: ${percent }%"></div>
 					</div>

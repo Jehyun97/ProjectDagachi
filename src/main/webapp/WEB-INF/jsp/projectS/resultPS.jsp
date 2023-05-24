@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="container-fluid col-sm-11 h-100 justify-content-center">
 
 <div class="card card-row col-sm-3 card-primary">
@@ -20,9 +21,7 @@
 		<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 		<i class="fas fa-minus"></i>
 		</button>
-		<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-		<i class="fas fa-times"></i>
-		</button>
+		
 		</div>
 		</div>
 			<div class="card-body">
@@ -30,8 +29,10 @@
 				${wait.ps_title }
 				</div>
 				<div>
-				${wait.ps_EndDate }
+				<fmt:formatDate value="${wait.ps_EndDate }" pattern="yyyy-MM-dd" var="endDate"/>
+				마감기한: ${endDate }
 				</div>
+				
 			</div>
 		
 		<div class="card-footer">
@@ -63,9 +64,6 @@
 		<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 		<i class="fas fa-minus"></i>
 		</button>
-		<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-		<i class="fas fa-times"></i>
-		</button>
 		</div>
 		</div>
 			<div class="card-body">
@@ -73,7 +71,8 @@
 				${doing.ps_title }
 				</div>
 				<div>
-				${doing.ps_EndDate }
+				<fmt:formatDate value="${doing.ps_EndDate }" pattern="yyyy-MM-dd" var="endDate"/>
+				마감기한: ${endDate }
 				</div>
 			</div>
 		
@@ -106,9 +105,6 @@
 		<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 		<i class="fas fa-minus"></i>
 		</button>
-		<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-		<i class="fas fa-times"></i>
-		</button>
 		</div>
 		</div>
 			<div class="card-body">
@@ -116,7 +112,8 @@
 				${complete.ps_title }
 				</div>
 				<div>
-				${complete.ps_EndDate }
+				<fmt:formatDate value="${complete.ps_EndDate }" pattern="yyyy-MM-dd" var="endDate"/>
+				마감기한: ${endDate }
 				</div>
 			</div>
 		
@@ -144,7 +141,7 @@
 		<button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
 		<i class="fas fa-minus"></i>
 		</button>
-		<button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+		<button type="button" class="btn btn-tool" onclick="remove('${cancel.ps_Id}')">
 		<i class="fas fa-times"></i>
 		</button>
 		</div>

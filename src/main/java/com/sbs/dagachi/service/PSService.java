@@ -63,6 +63,11 @@ public class PSService {
 	public PS getPSByPsId(int ps_id) {
 		return pSRepository.getPSByPsId(ps_id);
 	}
+
+	public void removePS(String ps_id) {
+		int ps_idInt=Integer.parseInt(ps_id);
+		pSRepository.removePS(ps_idInt);
+	}
 	
 	
 }
