@@ -21,7 +21,27 @@
 </style>
 <input type="hidden" name="${attendence.attendence_regDate }"/>
 <div class="content-wrapper" >	
-	<h2 style="margin:10px;">근태 관리</h2>
+<i id="star-icon" class="fas fa-star" style="color:#5865F2; font-size:3rem; display:inline-block; "></i>
+<script>
+const starIcon = document.getElementById('star-icon');
+
+// 로컬 저장소에서 클릭 상태를 가져옴
+const isClicked = localStorage.getItem('starClicked');
+if (isClicked === 'true') {
+  starIcon.classList.add('text-yellow');
+}
+
+starIcon.addEventListener('click', function() {
+  if (starIcon.classList.contains('text-yellow')) {
+    starIcon.classList.remove('text-yellow');
+    localStorage.setItem('starClicked', 'false');
+  } else {
+    starIcon.classList.add('text-yellow');
+    localStorage.setItem('starClicked', 'true');
+  }
+});
+</script>
+	<h1 style="margin:10px; display:inline-block;">근태 관리</h1>
 
 		<div class="col-lg-12" style="display:flex; justify-content:start;" >
 		<div class="info-box mb-6 "  style="background-color: #333c9e;">

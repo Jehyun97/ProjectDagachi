@@ -2,11 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@page import="java.util.List"%>
-<%@page import="com.sbs.dagachi.vo.Reservation"%>
 
 <%@include file="/WEB-INF/jsp/include/head.jspf" %>
-
 <style>
 #bar{
  width: 50px;
@@ -16,11 +13,33 @@
 
 
 
+
 <div class="content-wrapper" >	
 
+<div class="col-md-12">
+<i id="star-icon" class="fas fa-star" style="color:#5865F2; font-size:3rem; display:inline-block; "></i>
 
+<script>
+const starIcon = document.getElementById('star-icon');
 
-	<h2 style="margin:10px;">회의실 예약</h2>
+//로컬 저장소에서 클릭 상태를 가져옴
+const isClicked = localStorage.getItem('starClicked');
+if (isClicked === 'true') {
+starIcon.classList.add('text-yellow');
+}
+
+starIcon.addEventListener('click', function() {
+if (starIcon.classList.contains('text-yellow')) {
+ starIcon.classList.remove('text-yellow');
+ localStorage.setItem('starClicked', 'false');
+} else {
+ starIcon.classList.add('text-yellow');
+ localStorage.setItem('starClicked', 'true');
+}
+});
+</script>
+	<h1 style="margin:10px; display:inline-block;">회의실 예약</h1>
+	</div>
 		<c:if test="${loginUser.member_auth eq 2 or loginUser.member_auth eq 3}">
   <div id="btngroup" style="display:flex;">
     <div class="insertbtn" style="margin: 10px;">
@@ -48,7 +67,7 @@
     <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; width:200px;">
       <div style="flex-grow: 1;"></div>
       <c:forEach var="room" items="${room}">
-        <button class="room-button" style="background-color:#8f97f5; border:none; margin-top:5px; margin-right:20px; "data-room-code="${room.room_code}" onclick="showEvents('${room.room_code}')">${room.room_name}</button>
+        <button class="room-button bg-Info badge-lg" style="background-color:#17a2b8; border:none; margin-top:5px; margin-right:20px;border-radius:5px; "data-room-code="${room.room_code}" onclick="showEvents('${room.room_code}')">${room.room_name}</button>
       </c:forEach>
       <div style="flex-grow: 1;"></div>
     </div>
@@ -111,6 +130,9 @@
 	      </table>
     	</div>
 	</div>
+
+</div>
+
    <div class="row">
   <div class="col">
     <nav aria-label="Contacts Page Navigation">
@@ -148,9 +170,6 @@
     </nav>
   </div>
 </div>
-</div>
-
-
 
 <!-- modal 추가 -->
 
