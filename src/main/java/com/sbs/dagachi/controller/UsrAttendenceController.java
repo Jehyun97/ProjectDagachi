@@ -46,6 +46,8 @@ public class UsrAttendenceController {
 				searchKeyword);
 		int itemsCountInAPage = 10;
 		int pagesCount = (int) Math.ceil((double) attendenceCount / itemsCountInAPage);
+		
+		
 
 		List<Map<String, Object>> attendence = attendenceService.getDepartmentTotal();
 
@@ -194,7 +196,7 @@ public class UsrAttendenceController {
 		int attendenceCount = attendenceService.getTeamlistCount(attendence_id, searchKeywordTypeCode, searchKeyword);
 		int itemsCountInAPage = 10;
 		int pagesCount = (int) Math.ceil((double) attendenceCount / itemsCountInAPage);
-
+	
 		List<Map<String, Object>> todaytotal = attendenceService.getTeamTodayTotal(member_department, itemsCountInAPage,
 				page, searchKeywordTypeCode, searchKeyword);
 

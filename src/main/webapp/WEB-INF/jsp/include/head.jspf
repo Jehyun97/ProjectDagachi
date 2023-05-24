@@ -405,14 +405,13 @@
   
    <script>
 function logout() {
-    // Send an AJAX request to the logout endpoint
+
     fetch('/logout', {
         method: 'POST'
     })
     .then(response => {
-        // Redirect the user to the desired page after logout
-        window.location.href = '/common/login'; // Replace '/login' with the appropriate URL
-    })
+    
+        window.location.href = '/common/login'; 
     .catch(error => {
         console.error('Logout failed:', error);
     });
